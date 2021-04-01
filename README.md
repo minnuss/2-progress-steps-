@@ -8,3 +8,4 @@ Technology used:
 - Sass
 - JavaScript
 - Google Fonts
+- Git
