@@ -1,0 +1,123 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-prim: #3f72af;
+  --color-sec: #112d4e;
+  --color-bg: #f9f7f7;
+  --color-bg2: #dbe2ef;
+  --color-active: #0096c9;
+  --color-bg-active: #7b6bb4;
+  --color-bg-hover: #af5ea5;
+  --color-disabled: #dddddd;
+}
+
+html {
+  font-size: 62.5%; // 10px
+  font-family: 'Montserrat', sans-serif; // 'Poppins', 'Montserrat', 'Roboto';
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.progress {
+  text-align: center;
+  width: 70%;
+  min-width: 25rem;
+
+  &__content {
+    background-color: var(--color-bg2);
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+
+    &--line {
+      position: absolute;
+      height: 4px;
+      top: 50%;
+      width: 0;
+      transform: translateY(-50%);
+      background-color: var(--color-prim);
+      z-index: 1;
+      transition: width 0.4s ease;
+    }
+
+    &--circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: var(--color-prim);
+      color: var(--color-bg);
+      border: 2px solid var(--color-bg);
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      font-size: 2rem;
+      font-weight: 600;
+      z-index: 1;
+      transition: all 0.4s ease;
+    }
+
+    &--circle.active {
+      background-color: var(--color-bg-active);
+      border: 2px solid var(--color-active);
+      // color: var(--color-active);
+    }
+  }
+
+  &__content::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    margin: 0 2.5%;
+    transform: translateY(-50%);
+    background-color: var(--color-bg);
+  }
+
+  &--btn {
+    margin-top: 2rem;
+    padding: 0.7vh 3vw;
+    border-radius: 8px;
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: var(--color-bg-active);
+    color: var(--color-bg);
+    border: none;
+    outline: none;
+    transition: background-color 0.4s ease-in-out;
+  }
+
+  &--btn:hover {
+    background-color: var(--color-bg-hover);
+  }
+
+  &--btn:active {
+    transform: scale(0.97);
+  }
+
+  &--btn:disabled {
+    background-color: var(--color-disabled);
+    color: rgba(0, 0, 0, 0.808);
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 1000px) {
+    width: 90%;
+  }
+}
